@@ -1,6 +1,5 @@
 <div>
     <form>
-       @csrf
         <div class="row m-4">
             <button class="btn text-white btn-info btn-sm" wire:click.prevent="add()">Add Test Type</button>
         </div>
