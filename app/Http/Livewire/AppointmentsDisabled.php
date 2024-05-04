@@ -225,8 +225,8 @@ class AppointmentsDisabled extends Component
         if (!empty($this->removedIds)) {
             LocationTestTypeAppointmentDisabled::whereIn('id', $this->removedIds)->delete();
             foreach ($this->removedRecords as $record) {
-                // Slack::send('The disabled appointment time on ' . $record['day_of_week'] . ' from ' . $record['from'] . ' to ' . $record['to'] . ' for test type ' . $testType->name
-                //     . ' for location ' . $location->name . ' for organization ' . $location->organization->name . ' is deleted!');
+                Slack::send('The disabled appointment time on ' . $record['day_of_week'] . ' from ' . $record['from'] . ' to ' . $record['to'] . ' for test type ' . $testType->name
+                    . ' for location ' . $location->name . ' for organization ' . $location->organization->name . ' is deleted!');
             }
         }
         foreach ($this->toArray as $key => $value) {
@@ -243,8 +243,8 @@ class AppointmentsDisabled extends Component
                 $this->savedItemsKeys[] = $key;
             }
             if (!in_array($key, $this->savedKeys)) {
-                // Slack::send('The disabled appointment time on ' . $this->dayOfWeekArray[$key] . ' from ' . $this->fromArray[$key] . ' to ' . $this->toArray[$key] .
-                //     ' for test type ' . $testType->name . ' for location ' . $location->name . ' for organization ' . $location->organization->name . ' is added!');
+                Slack::send('The disabled appointment time on ' . $this->dayOfWeekArray[$key] . ' from ' . $this->fromArray[$key] . ' to ' . $this->toArray[$key] .
+                    ' for test type ' . $testType->name . ' for location ' . $location->name . ' for organization ' . $location->organization->name . ' is added!');
             }
         }
         $this->savedKeys = [];
@@ -264,8 +264,8 @@ class AppointmentsDisabled extends Component
         LocationTestTypeAppointmentDisabled::where('location_id', $this->location)
             ->where('test_type_id', $this->testTypeId)->delete();
         foreach ($this->removedRecords as $record) {
-            // Slack::send('The disabled appointment time on ' . $record->day_of_week . ' from ' . $record->from . ' to ' . $record->to . ' for test type ' . $testType->name
-            //     . ' for location ' . $location->name . ' for organization ' . $location->organization->name . ' is deleted!');
+            Slack::send('The disabled appointment time on ' . $record->day_of_week . ' from ' . $record->from . ' to ' . $record->to . ' for test type ' . $testType->name
+                . ' for location ' . $location->name . ' for organization ' . $location->organization->name . ' is deleted!');
         }
         $this->emit('removeTestType', [$this->keyVal]);
 

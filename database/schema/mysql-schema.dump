@@ -76,13 +76,3 @@ CREATE TABLE `ltt_appointments_disabled` (
   CONSTRAINT `ltt_appointments_disabled_location_id_foreign` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`),
   CONSTRAINT `ltt_appointments_disabled_test_type_id_foreign` FOREIGN KEY (`test_type_id`) REFERENCES `test_types` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-CREATE TABLE `sessions` (
-  `payload` mediumtext NOT NULL,
-  `id` int(11) NOT NULL,
-  `ip_address` varchar(256) NOT NULL,
-  `pages_id` varchar(256) NOT NULL,
-  `ts` varchar(256) NOT NULL,
-  `user_agent` varchar(256) NOT NULL,
-  `user_id` varchar(256) NOT NULL,
-  `last_activity` unsigned
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
